@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reminder">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColorHighlight="@color/darkblue"
+        android:text="MEDICINE INTAKE REMINDER" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="144dp"
+        android:text="Choose a time : " />
+
+    <EditText
+        android:id="@+id/reChooseTime"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignEnd="@+id/buttonRemOK"
+        android:focusable="false"
+        android:hint="Open clock" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_marginTop="211dp"
+        android:text="Medicine type : " />
+
+    <Button
+        android:id="@+id/buttonRemCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView11"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:text="CANCEL" />
+
+    <Button
+        android:id="@+id/buttonRemOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/buttonRemCancel"
+        android:layout_marginEnd="46dp"
+        android:text="OK"
+        android:onClick="setAlarm"/>
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/reChooseTime"
+        android:layout_alignTop="@+id/textView12" />
+
+
+</RelativeLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Main Menu</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

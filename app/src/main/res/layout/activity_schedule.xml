@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Schedule">
+
+
+
+    <TextView
+        android:id="@+id/scheduleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColorHighlight="@color/darkblue"
+        android:text="DIALYSIS SCHEDULE" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/scheduleTitle"
+        android:layout_marginTop="139dp"
+        android:text="Choose the date :"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="109dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/scheduleTitle"
+        android:layout_marginTop="209dp"
+        android:text="Choose the time :"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <EditText
+        android:id="@+id/button2"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignEnd="@+id/scheduleTitle"
+        android:focusable="false"
+        android:hint="Open calender"
+        />
+
+    <EditText
+        android:id="@+id/etChooseTime"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignEnd="@+id/scheduleTitle"
+        android:focusable="false"
+        android:hint="Open clock"
+        />
+
+
+    <Button
+        android:id="@+id/buttonSchOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/scheduleTitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="106dp"
+        android:text="OK"
+        android:onClick="setAlarm"/>
+
+    <Button
+        android:id="@+id/buttonSchCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignTop="@+id/buttonSchOK"
+        android:text="CANCEL"
+        />
+
+
+
+
+
+
+</RelativeLayout>
