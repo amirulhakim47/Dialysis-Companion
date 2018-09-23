@@ -30,6 +30,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.lzyzsd.circleprogress.CircleProgress;
+import com.github.lzyzsd.circleprogress.DonutProgress;
+
+import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class calimage extends AppCompatActivity {
 
@@ -41,10 +44,12 @@ public class calimage extends AppCompatActivity {
     private ViewPager mViewPager;
 
     ProgressBar mProgress;
-    TextView tv4, tv13, tv14;
+    TextView tv4, tv66, tv14;
     ImageView im1,im2,im3, im4, im5;
     LinearLayout lin;
-    CircleProgress circularProgress;
+    DonutProgress circularProgress;
+    WaveLoadingView waveLoadingView;
+    int level ;
 
     private int progress = 0;
 
@@ -58,7 +63,8 @@ public class calimage extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         tv4 = (TextView) findViewById(R.id.textView5);
-        circularProgress =(CircleProgress)findViewById(R.id.circle_progress);
+        tv66 = (TextView) findViewById(R.id.textView66);
+        circularProgress =(DonutProgress)findViewById(R.id.circle_progress);
         circularProgress.setProgress(0);
         circularProgress.setMax(100);
 
@@ -72,25 +78,13 @@ public class calimage extends AppCompatActivity {
         /*mProgress = (ProgressBar) findViewById(R.id.progressBar2);
         mProgress.setProgress(0);
         mProgress.setMax(1200);*/
+        waveLoadingView = (WaveLoadingView) findViewById(R.id.waveLoadingView);
+        waveLoadingView.setCenterTitleColor(Color.WHITE);
+        waveLoadingView.setCenterTitleStrokeColor(Color.BLACK);
+        waveLoadingView.setProgressValue(0);
+        waveLoadingView.setCenterTitle("Water level");
 
 
-
-
-        if (circularProgress.getProgress() == circularProgress.getMax())
-        {
-
-            circularProgress.setProgress(0);
-            lin.removeAllViews();
-            Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
-
-        }
-
-
-       /* BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);*/
 
         im1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +95,21 @@ public class calimage extends AppCompatActivity {
                 TextView txtName = new TextView(calimage.this);
                 txtName.setId(View.generateViewId());
                 txtName.setText("Tea cup - 100 ml");
+                waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+8);
 
                 lin.addView(txtName);
+                if(level >= 1200) {
+                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    circularProgress.setProgress(0);
+                    waveLoadingView.setProgressValue(0);
+                    lin.removeAllViews();
+                    tv66.setText("");
+                    return ;
+                }
+                else {
+                    level = level+100;
+                    tv66.setText("Consumed " + level + "ml");
+                }
 
 
             }
@@ -119,8 +126,21 @@ public class calimage extends AppCompatActivity {
                 TextView txtName = new TextView(calimage.this);
                 txtName.setId(View.generateViewId());
                 txtName.setText("Soft drinks - 355 ml");
-
+                waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+30);
                 lin.addView(txtName);
+                if(level >= 1200) {
+                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    circularProgress.setProgress(0);
+                    waveLoadingView.setProgressValue(0);
+                    lin.removeAllViews();
+                    tv66.setText("");
+                    return ;
+                }
+                else {
+                    level = level+355;
+                    tv66.setText("Consumed " + level + "ml");
+                }
+
 
             }
         });
@@ -157,6 +177,19 @@ public class calimage extends AppCompatActivity {
                                         txtName.setId(View.generateViewId());
                                         txtName.setText("Custom - " + userInput.getText() + " ml");
                                         lin.addView(txtName);
+                                        waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+total);
+                                        if(level >= 1200) {
+                                            Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                                            circularProgress.setProgress(0);
+                                            waveLoadingView.setProgressValue(0);
+                                            lin.removeAllViews();
+                                            tv66.setText("");
+                                            return ;
+                                        }
+                                        else {
+                                            level = level+spin3;
+                                            tv66.setText("Consumed " + level + "ml");
+                                        }
                                     }
                                 })
                         .setNegativeButton("Cancel",
@@ -179,13 +212,25 @@ public class calimage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
              //   mProgress.setProgress(mProgress.getProgress()+500);
+                waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+42);
                 circularProgress.setProgress(circularProgress.getProgress()+42);
                 TextView txtName = new TextView(calimage.this);
                 txtName.setId(View.generateViewId());
                 txtName.setText("Small bottle - 500 ml");
 
                 lin.addView(txtName);
-
+                if(level >= 1200) {
+                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    circularProgress.setProgress(0);
+                    waveLoadingView.setProgressValue(0);
+                    lin.removeAllViews();
+                    tv66.setText("");
+                    return ;
+                }
+                else {
+                    level = level+500;
+                    tv66.setText("Consumed " + level + "ml");
+                }
 
             }
         });
@@ -194,13 +239,25 @@ public class calimage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
              //   mProgress.setProgress(mProgress.getProgress()+800);
+                waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+67);
                 circularProgress.setProgress(circularProgress.getProgress()+67);
                 TextView txtName = new TextView(calimage.this);
                 txtName.setId(View.generateViewId());
                 txtName.setText("Jug - 800 ml");
 
                 lin.addView(txtName);
-
+                if(level >= 1200) {
+                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    circularProgress.setProgress(0);
+                    waveLoadingView.setProgressValue(0);
+                    lin.removeAllViews();
+                    tv66.setText("");
+                    return ;
+                }
+                else {
+                    level = level+800;
+                    tv66.setText("Consumed " + level + "ml");
+                }
 
             }
         });
