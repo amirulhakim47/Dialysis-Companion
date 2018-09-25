@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignTop="@+id/buttonSchOK"
-        android:text="CANCEL"
+        android:text="RESET"
         />
 
 

@@ -14,6 +14,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +51,8 @@ public class calimage extends AppCompatActivity {
     LinearLayout lin;
     DonutProgress circularProgress;
     WaveLoadingView waveLoadingView;
-    int level ;
+    Button bClear;
+    int level = 0;
 
     private int progress = 0;
 
@@ -64,6 +67,7 @@ public class calimage extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         tv4 = (TextView) findViewById(R.id.textView5);
         tv66 = (TextView) findViewById(R.id.textView66);
+        bClear = (Button) findViewById(R.id.buttonResetCal);
         circularProgress =(DonutProgress)findViewById(R.id.circle_progress);
         circularProgress.setProgress(0);
         circularProgress.setMax(100);
@@ -86,6 +90,18 @@ public class calimage extends AppCompatActivity {
 
 
 
+
+        bClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                circularProgress.setProgress(0);
+                waveLoadingView.setProgressValue(0);
+                lin.removeAllViews();
+                tv66.setText("");
+                level = 0;
+            }
+        });
+
         im1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,11 +115,12 @@ public class calimage extends AppCompatActivity {
 
                 lin.addView(txtName);
                 if(level >= 1200) {
-                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(calimage.this, "Warning! you have exceeded your water level limit for the day", Toast.LENGTH_SHORT).show();
                     circularProgress.setProgress(0);
                     waveLoadingView.setProgressValue(0);
                     lin.removeAllViews();
                     tv66.setText("");
+                    level = 0;
                     return ;
                 }
                 else {
@@ -129,11 +146,12 @@ public class calimage extends AppCompatActivity {
                 waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+30);
                 lin.addView(txtName);
                 if(level >= 1200) {
-                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(calimage.this, "Warning! you have exceeded your water level limit for the day", Toast.LENGTH_SHORT).show();
                     circularProgress.setProgress(0);
                     waveLoadingView.setProgressValue(0);
                     lin.removeAllViews();
                     tv66.setText("");
+                    level = 0;
                     return ;
                 }
                 else {
@@ -161,6 +179,7 @@ public class calimage extends AppCompatActivity {
                         .findViewById(R.id.editTextDialogUserInput);
                 userInput.setInputType(InputType.TYPE_CLASS_NUMBER);
                 userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
+                userInput.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "1200")});
 
                 // set dialog message
                 alertDialogBuilder
@@ -179,11 +198,12 @@ public class calimage extends AppCompatActivity {
                                         lin.addView(txtName);
                                         waveLoadingView.setProgressValue(waveLoadingView.getProgressValue()+total);
                                         if(level >= 1200) {
-                                            Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(calimage.this, "Warning! you have exceeded your water level limit for the day", Toast.LENGTH_SHORT).show();
                                             circularProgress.setProgress(0);
                                             waveLoadingView.setProgressValue(0);
                                             lin.removeAllViews();
                                             tv66.setText("");
+                                            level = 0;
                                             return ;
                                         }
                                         else {
@@ -220,11 +240,12 @@ public class calimage extends AppCompatActivity {
 
                 lin.addView(txtName);
                 if(level >= 1200) {
-                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(calimage.this, "Warning! you have exceeded your water level limit for the day", Toast.LENGTH_SHORT).show();
                     circularProgress.setProgress(0);
                     waveLoadingView.setProgressValue(0);
                     lin.removeAllViews();
                     tv66.setText("");
+                    level = 0;
                     return ;
                 }
                 else {
@@ -247,11 +268,12 @@ public class calimage extends AppCompatActivity {
 
                 lin.addView(txtName);
                 if(level >= 1200) {
-                    Toast.makeText(calimage.this, "Warning! you have exceeded the water level limit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(calimage.this, "Warning! you have exceeded your water level limit for the day", Toast.LENGTH_SHORT).show();
                     circularProgress.setProgress(0);
                     waveLoadingView.setProgressValue(0);
                     lin.removeAllViews();
                     tv66.setText("");
+                    level = 0;
                     return ;
                 }
                 else {

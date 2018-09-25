@@ -43,7 +43,7 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(MainMenu.this, Calculator.class));
+                startActivity(new Intent(MainMenu.this, calimage.class));
             }
 
         });

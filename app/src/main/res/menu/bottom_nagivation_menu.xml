@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/ic_add_sign"
+        android:icon="@drawable/ic_add_sign"
+        android:title="Add more"
+        />
+
+    <item
+        android:id="@+id/ic_tea_cup"
+        android:icon="@drawable/ic_tea_cup"
+        android:title="Tea cup"
+        />
+    <item
+        android:id="@+id/ic_soda_can"
+        android:icon="@drawable/ic_soda_can"
+        android:title="Soda can"
+        />
+    <item
+        android:id="@+id/ic_water_bottle"
+        android:icon="@drawable/ic_water_bottle"
+        android:title="Water bottle"
+        />
+    <item
+        android:id="@+id/ic_water_jug"
+        android:icon="@drawable/ic_water_jug"
+        android:title="Jug"
+        />
+
+
+
+
+</menu>

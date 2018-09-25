@@ -130,8 +130,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_gps" />
-                            <entry key="sourceFile" value="C:\Users\yoi" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_water_jug" />
+                            <entry key="sourceFile" value="C:\Users\yoi\Desktop\water-jug.svg" />
                           </map>
                         </option>
                       </PersistentState>

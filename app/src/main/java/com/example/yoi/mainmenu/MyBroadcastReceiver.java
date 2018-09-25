@@ -51,7 +51,8 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.noti)
                 .setContentTitle("Dialysis Time")
-                .setContentText("It is now time for your hemo-dialysis session");
+                .setContentText("It is now time for your hemo-dialysis session")
+                .setAutoCancel(true);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addNextIntent(intent);

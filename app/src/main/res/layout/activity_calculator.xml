@@ -89,7 +89,6 @@
         android:id="@+id/progressBar3"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="184dp"
-
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

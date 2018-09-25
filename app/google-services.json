@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "822179837188",
+    "firebase_url": "https://dialysis-companion.firebaseio.com",
+    "project_id": "dialysis-companion",
+    "storage_bucket": "dialysis-companion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822179837188:android:7dc1559608fe4b07",
+        "android_client_info": {
+          "package_name": "com.example.yoi.mainmenu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822179837188-dvtl0ai8ujnl87ghg2k76cv1k0keq1ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWcDbZgFe3L4a-q-q8pHCHLh4UmFp4NOw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

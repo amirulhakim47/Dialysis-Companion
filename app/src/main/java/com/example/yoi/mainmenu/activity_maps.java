@@ -52,6 +52,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,7 @@ GoogleApiClient.OnConnectionFailedListener{
     private GoogleApiClient mGoogleApiClient;
     private PlaceInfo mPlace;
     private Marker mMarker;
+
 
 
     @Override

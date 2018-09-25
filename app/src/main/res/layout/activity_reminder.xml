@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="35dp"
         android:textColorHighlight="@color/darkblue"
         android:text="MEDICINE INTAKE REMINDER" />
 
@@ -46,14 +46,24 @@
         android:layout_marginTop="211dp"
         android:text="Medicine type : " />
 
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_marginTop="273dp"
+        android:text="Amount : " />
+
     <Button
         android:id="@+id/buttonRemCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView11"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="150dp"
-        android:text="CANCEL" />
+        android:layout_marginStart="80dp"
+        android:text="RESET" />
 
     <Button
         android:id="@+id/buttonRemOK"
@@ -61,16 +71,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/buttonRemCancel"
-        android:layout_marginEnd="46dp"
-        android:text="OK"
-        android:onClick="setAlarm"/>
+        android:layout_marginEnd="74dp"
+        android:onClick="setAlarm"
+        android:text="OK" />
 
     <Spinner
         android:id="@+id/spinner4"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/reChooseTime"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_marginStart="-33dp" />
+
+    <Spinner
+        android:id="@+id/spinner44"
         android:layout_width="133dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/reChooseTime"
-        android:layout_alignTop="@+id/textView12" />
+        android:layout_alignTop="@+id/textView21"
+        />
 
 
 </RelativeLayout>

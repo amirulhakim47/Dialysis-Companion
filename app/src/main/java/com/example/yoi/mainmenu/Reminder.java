@@ -24,14 +24,26 @@ public class Reminder extends AppCompatActivity {
     EditText chooseTime;
     int currentHour;
     int currentMinute;
+    int sid;
     final static int RQS_1 = 1;
     public static int alarmHour, alarmMin, alarmDay, alarmYear, alarmMonth;
+
+    Spinner pills;
+    String[] amount = {
+
+            "",
+            "1 pill",
+            "2 pills",
+            "3 pills",
+            "4 pills",
+            "5 pills",
+            "6 pills",
+    };
 
     //spinner dropdown
     Spinner spinnerDropDown;
     String[] volume = {
             "",
-            "Erythropoietin",
             "Phosphorus binders",
             "Active Vitamin D",
             "B-complex Vitamin",
@@ -66,9 +78,46 @@ public class Reminder extends AppCompatActivity {
                     // do nothing
                 }
                 else {
-                    int sid = spinnerDropDown.getSelectedItemPosition();
+
+                    sid = spinnerDropDown.getSelectedItemPosition();
                     Toast.makeText(getBaseContext(), "You have selected : " + volume[sid],
                             Toast.LENGTH_SHORT).show();
+
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+        pills =(Spinner)findViewById(R.id.spinner44);
+
+        ArrayAdapter<String> adapter2= new ArrayAdapter<String>(this,android.
+                R.layout.simple_spinner_dropdown_item ,amount);
+
+        pills.setAdapter(adapter2);
+
+        pills.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // Get select item
+                if
+                        (parent.getItemAtPosition(position).equals(""))
+                {
+                    // do nothing
+                }
+                else {
+                    int pid;
+                    pid = pills.getSelectedItemPosition();
+                    Toast.makeText(getBaseContext(), "You have selected : " + amount[pid],
+                            Toast.LENGTH_SHORT).show();
+
                 }
             }
             @Override
@@ -94,27 +143,12 @@ public class Reminder extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         // get input time
-                        /*Calendar calNow = Calendar.getInstance();
-                        Calendar calSet = (Calendar) calNow.clone();
 
-                        calSet.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                        calSet.set(Calendar.MINUTE, minutes);
-                        calSet.set(Calendar.SECOND, 0);
-                        calSet.set(Calendar.MILLISECOND, 0);
-
-                        if(calSet.compareTo(calNow) <= 0){
-                            //Today Set time passed, count to tomorrow
-                            calSet.add(Calendar.DATE, 1);
-                        }
-
-                        setAlarm(calSet);*/
 
                         alarmHour = hourOfDay;
                         alarmMin = minutes;
 
-                        //set text value
-                        /*chooseTime.setText(hourOfDay + ":" + minutes);
-                        chooseTime.setText(String.format("%02d:%02d", hourOfDay, minutes));*/
+
 
                         String amPm;
                         if (hourOfDay > 12) {
@@ -145,11 +179,13 @@ public class Reminder extends AppCompatActivity {
             public void onClick(View v){
                 EditText re=(EditText) findViewById(R.id.reChooseTime);
                 Spinner tvDate = (Spinner) findViewById(R.id.spinner4);
+                pills.setAdapter(null);
                 tvDate.setAdapter(null);
                 re.setText("");
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 Intent myIntent = new Intent(getApplicationContext(), MyBroadcastReceiver.class);
+
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         getApplicationContext(), 1, myIntent, 0);
 
@@ -157,29 +193,10 @@ public class Reminder extends AppCompatActivity {
             }
         });
 
-        // OK button in schedule layout
 
-       /* Button btnOK = (Button) findViewById(R.id.buttonRemOK);
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-
-
-                Toast.makeText(getBaseContext(), "Your reminder has been set!" , Toast.LENGTH_SHORT ).show();
-
-            }});*/
     }
 
-    /*private void setAlarm(Calendar targetCal){
 
-
-
-        Intent intent = new Intent(getBaseContext(), ReminderReciever.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
-        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
-    }*/
 
     public void setAlarm(View view) {
         Calendar calNow = Calendar.getInstance();
@@ -195,12 +212,19 @@ public class Reminder extends AppCompatActivity {
     {
         Toast.makeText(this, "Reminder is set at" + " " + targetCal.getTime(),
                 Toast.LENGTH_LONG).show();
+
+        String text = spinnerDropDown.getSelectedItem().toString();
+        String pill = pills.getSelectedItem().toString();
         Intent intent = new Intent(getBaseContext(), ReminderReciever.class);
+        intent.putExtra("message",text);
+        intent.putExtra("ubat",pill);
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 getBaseContext(), RQS_1, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(),
                 pendingIntent);
+
 
     }
 

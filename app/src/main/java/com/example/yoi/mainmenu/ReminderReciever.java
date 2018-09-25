@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
@@ -37,6 +38,10 @@ public class ReminderReciever extends BroadcastReceiver {
         String channelName = "Channel Name";
         int importance = NotificationManager.IMPORTANCE_HIGH;
 
+
+        String msg=intent.getStringExtra("message");
+        String ubt=intent.getStringExtra("ubat");
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(
                     channelId, channelName, importance);
@@ -45,10 +50,11 @@ public class ReminderReciever extends BroadcastReceiver {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.noti)
-                .setContentTitle("Medicine Time")
-                .setContentText("It is now time for you to take your medicine, be sure to check the label first")
+                .setContentTitle("Reminder!!")
+                .setContentText("It is now time for you to take your medicine")
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("It is now time for you to take your medicine, be sure to check the label first"))
+                        .bigText("Type of medicine: " + msg + "\n" + "Amount to be taken: " + ubt))
+                
                 .setAutoCancel(true);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
